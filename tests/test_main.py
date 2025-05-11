@@ -27,7 +27,7 @@ class TestKeyPress(unittest.TestCase):
         main.on_key_press(mock_key)
 
         self.assertIsNone(last_screenshot)
-        print("✅ test_invalid_key passed sucessfully.")
+        print("✅ test_invalid_key passed.")
 
 
 if __name__ == '__main__':

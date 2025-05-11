@@ -35,7 +35,7 @@ def on_key_press(key):
             # OPTIONAL: Simulate Ctrl+V (paste) - can be dangerous
             # pyautogui.hotkey('ctrl', 'v')
         else:
-            print(f" Incorrect Key {key} pressed. Press '1' or '2' only.")
+            print(f" Incorrect Key {key} pressed. Please Press '1' or '2' only.")
     except Exception as e:
         print(f"❌ Error handling key: {key} → {e}")
 
