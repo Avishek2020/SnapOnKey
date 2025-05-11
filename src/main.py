@@ -43,7 +43,7 @@ def on_key_press(key):
 
 def run_bot():
     print("🔹 Bot running...")
-    print("🔹 Press '1' (top row) or Numpad 1 to capture and copy screenshot.")
+    print("🔹 Press '1' (top row) or Numpad 1 to capture and copy screenshot..")
     print("🔹 Press '2' (top row) or Numpad 2 to delete last screenshot.")
     with keyboard.Listener(on_press=on_key_press) as listener:
         listener.join()
