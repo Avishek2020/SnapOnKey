@@ -1,6 +1,13 @@
+import sys
 import unittest
-from unittest.mock import MagicMock
-from src import main
+from unittest.mock import MagicMock, patch
+
+# 👇 Mock pyautogui and ImageGrab *before* importing main
+sys.modules['pyautogui'] = MagicMock()
+sys.modules['PIL.ImageGrab'] = MagicMock()
+
+from src import main  # Now it won’t raise KeyError: 'DISPLAY'
+
 class TestKeyPress(unittest.TestCase):
     def test_key_1_pressed(self):
         # Mock a key with char '1'
