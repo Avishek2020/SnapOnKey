@@ -29,4 +29,23 @@ jobs:
         pip install pytest
         pytest tests/
 
+    - name: 📧 Send email notification
+      if: always()  # Run this step regardless of success/failure
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: ${{ secrets.EMAIL_SERVER }}
+        server_port: ${{ secrets.EMAIL_PORT }}
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        subject: GitHub CI for Screenshot Bot - ${{ job.status }}
+        body: |
+          GitHub CI job has finished with status: ${{ job.status }}
+
+          Repository: ${{ github.repository }}
+          Branch: ${{ github.ref }}
+          Commit: ${{ github.sha }}
+          Triggered by: ${{ github.event_name }}
+        to: ${{ secrets.EMAIL_TO }}
+        from: GitHub Actions <${{ secrets.EMAIL_USERNAME }}>
+
 
